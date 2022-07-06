@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:nsg_biolabs/presentation/pages/booking/note_detail.dart';
+import 'package:nsg_biolabs/presentation/pages/booking/note_page.dart';
 import 'package:nsg_biolabs/routes/app_routes.dart';
 import 'package:nsg_biolabs/shared/config/config.dart';
 import 'package:nsg_biolabs/shared/widgets/widges.dart';
@@ -50,7 +52,9 @@ class _HomePageState extends State<HomePage> {
         //   ),
         // ),
       ],
-      floatingActionButton: CustomFloatingActionButton(onPressed: () => Get.toNamed(Routes.booking)),
+      floatingActionButton: CustomFloatingActionButton(onPressed: () =>  Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => NotePage()),),),
       bottomNavigationBar: Padding(
         padding: CustomEdgeInsets.symmetric(vertical: Space.spacing17),
         child: Row(
@@ -69,7 +73,10 @@ class _HomePageState extends State<HomePage> {
       // separatorBuilder: ( context,  index) => CustomSizedBox(height: 10,),
       shrinkWrap: true,
       itemCount: inforListDemo.length,
-      itemBuilder: (BuildContext context, int index) => NoteItem(info: inforListDemo[index]),
+      itemBuilder: (BuildContext context, int index) => GestureDetector(child: NoteItem(info: inforListDemo[index]),
+      onTap:() =>  Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => NoteDetail(info: inforListDemo[index],)),),) ,
     ));
   }
 }

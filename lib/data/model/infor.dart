@@ -11,7 +11,7 @@ class NotesModel {
     required this.color,
     this.title = '',
     this.subTitle = '',
-    this.time,
+    this.time='',
 
   });
 }

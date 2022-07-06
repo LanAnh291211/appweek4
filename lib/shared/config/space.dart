@@ -13,4 +13,5 @@ class Space {
   static const double spacing23 = 23;
   static const double spacing24 = 24;
   static const double spacing32 = 32;
+  static const double spacing40 = 40;
 }
