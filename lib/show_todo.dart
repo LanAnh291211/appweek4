@@ -19,7 +19,7 @@ class _ShowTodoState extends State<ShowTodo> {
   Widget build(BuildContext context) {
     final todos = context.watch<FilteredTodoCubit>().state.filteredTodos;
 
-    return Scrollbar(
+    return Scrollbar(// chờ e xíu ý. e test thử : 
       thickness: 5.0,
       child: ListView.builder(
           physics: const ScrollPhysics(parent: BouncingScrollPhysics()),

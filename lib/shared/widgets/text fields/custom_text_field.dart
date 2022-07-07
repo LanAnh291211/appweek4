@@ -76,17 +76,7 @@ class CustomTextField extends StatelessWidget {
           maxLines: maxLine,
           minLines: minLine,
           style: style,
-          onFieldSubmitted: (String? todoDesc) {
-            if (todoDesc != null && todoDesc.trim().isNotEmpty) {
-              context.read<TodoListCubit>().addTodo(todoDesc);
-              controller?.clear();
-              log('Add todo: $todoDesc');
-              showTopSnackBar(context, CustomSnackBar.success(message: todoDesc + ' created successfully'),
-                  displayDuration: const Duration(
-                    milliseconds: 1800,
-                  ));
-            }
-          },
+          
           decoration: InputDecoration(
               hintText: hintText.tr,
               hintStyle: hintStyle,
