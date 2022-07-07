@@ -1,9 +1,16 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:nsg_biolabs/shared/config/config.dart';
 import 'package:nsg_biolabs/shared/extensions/image_assets_path_extension.dart';
 import 'package:nsg_biolabs/shared/widgets/widges.dart';
+import 'package:top_snackbar_flutter/custom_snack_bar.dart';
+import 'package:top_snackbar_flutter/top_snack_bar.dart';
+
+import '../../../todo_list/todo_list_cubit.dart';
 
 class CustomTextField extends StatelessWidget {
   final String label;
@@ -24,6 +31,7 @@ class CustomTextField extends StatelessWidget {
   final int? maxLine;
   final TextStyle? style;
   final TextStyle? hintStyle;
+  final void Function(String)? onFieldSubmitted;
 
   const CustomTextField({
     super.key,
@@ -44,7 +52,8 @@ class CustomTextField extends StatelessWidget {
     this.minLine = 1,
     this.maxLine = 1,
     this.style,
-    this.hintStyle,
+    this.hintStyle, this.onFieldSubmitted,
+    // this.onFieldSubmitted  = (){}
   });
 
   @override
@@ -67,6 +76,17 @@ class CustomTextField extends StatelessWidget {
           maxLines: maxLine,
           minLines: minLine,
           style: style,
+          onFieldSubmitted: (String? todoDesc) {
+            if (todoDesc != null && todoDesc.trim().isNotEmpty) {
+              context.read<TodoListCubit>().addTodo(todoDesc);
+              controller?.clear();
+              log('Add todo: $todoDesc');
+              showTopSnackBar(context, CustomSnackBar.success(message: todoDesc + ' created successfully'),
+                  displayDuration: const Duration(
+                    milliseconds: 1800,
+                  ));
+            }
+          },
           decoration: InputDecoration(
               hintText: hintText.tr,
               hintStyle: hintStyle,
