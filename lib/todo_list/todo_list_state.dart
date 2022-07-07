@@ -20,7 +20,7 @@ class TodoListState extends Equatable {
   }
 
   @override
-  String toString() => 'TodoListState(todos: $todos)';
+  String toString() => 'TodoListState(todos: $todos)'; // loi dau mo cho a coi cho do
 
   Map<String, dynamic> toMap() {
     return {

@@ -63,8 +63,7 @@ class TodoListCubit extends Cubit<TodoListState> with HydratedMixin {
         return todo;
       }).toList(),
     ));
-    // log('TodoListState: toggled todo id $id to ' +
-    //     state.todos.firstWhere((todo) => todo.id == id).completed.toString());
+    
   }
 
   void removeTodo(Todo todo) {
@@ -74,12 +73,7 @@ class TodoListCubit extends Cubit<TodoListState> with HydratedMixin {
     log('TodoListState: removed todo id ${todo.id}');
   }
 
-  // void removeCompletedTodos() {
-  //   emit(state.copyWith(
-  //     todos: state.todos.where((t) => !t.completed).toList(),
-  //   ));
-  //   log('TodoListState: todos left: ${state.todos.length}');
-  // }
+
 
   void removeAllTodos() {
     emit(state.copyWith(todos: []));

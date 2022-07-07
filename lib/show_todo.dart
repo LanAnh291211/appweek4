@@ -67,12 +67,7 @@ class _ShowTodoState extends State<ShowTodo> {
               },
             );
           },
-          // separatorBuilder: (BuildContext context, int index) {
-          //   return const Divider(
-          //     thickness: 1.3,
-          //     color: Colors.grey,
-          //   );
-          // },
+        
           itemCount: todos.length),
     );
   }
@@ -181,11 +176,7 @@ class _TodoItemState extends State<TodoItem> {
               });
             });
       },
-      // leading: Checkbox(
-      //     value: widget.todo.completed,
-      //     onChanged: (bool? checked) {
-      //       context.read<TodoListCubit>().toggleTodo(widget.todo.id);
-      //     }),
+    
       title: Text(widget.todo.title),
     );
   }
