@@ -1,7 +1,8 @@
 part of 'todo_list_cubit.dart';
+import '../../../data/model/infor.dart';
 
 class TodoListState extends Equatable {
-  final List<Todo> todos;
+  final List<NotesModel> todos;
   const TodoListState({
     required this.todos,
   });
@@ -12,7 +13,7 @@ class TodoListState extends Equatable {
   List<Object> get props => [todos];
 
   TodoListState copyWith({
-    List<Todo>? todos,
+    List<NotesModel>? todos,
   }) {
     return TodoListState(
       todos: todos ?? this.todos,
@@ -30,7 +31,7 @@ class TodoListState extends Equatable {
 
   factory TodoListState.fromMap(Map<String, dynamic> map) {
     return TodoListState(
-      todos: List<Todo>.from(map['todos']?.map((x) => Todo.fromMap(x))),
+      todos: List<Todo>.from(map['todos']?.map((x) => NotesModel.fromMap(x))),
     );
   }
 

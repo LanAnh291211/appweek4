@@ -1,9 +1,10 @@
+import 'dart:convert';
 import 'dart:developer';
 
 import 'package:equatable/equatable.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
-import 'dart:convert';
 
+import '../../../data/model/infor.dart';
 // import '../../models/todo_model.dart';
 import '../data/model/todo_model.dart';
 
@@ -13,30 +14,20 @@ class TodoListCubit extends Cubit<TodoListState> with HydratedMixin {
   TodoListCubit() : super(TodoListState.initial());
 
   void loadDefaultTodos() {
-    final todos = [
-      Todo(
-        id: '1',
-        title: 'Task 1',
-      ),
-      // Todo(
-      //   id: '2',
-      //   title: 'Task 2',
-      // ),
-      // Todo(
-      //   id: '3',
-      //   title: 'Task 3',
-      // ),
-      // Todo(
-      //   id: '4',
-      //   title: 'Task 4',
-      // ),
-    ];
-    emit(state.copyWith(todos: todos));
+    // final infoListDemo = [
+    //   Todo(
+    //     id: '1',
+    //     title: 'Task 1',
+
+    //   ),
+
+    // ];
+    emit(state.copyWith(todos: inforListDemo));
   }
 
   void addTodo(String todoDesc) {
     emit(state.copyWith(
-      todos: [...state.todos, Todo(title: todoDesc)],
+      todos: [...state.todos, NotesModel(title: todoDesc)],
     ));
   }
 
@@ -44,8 +35,7 @@ class TodoListCubit extends Cubit<TodoListState> with HydratedMixin {
     emit(state.copyWith(
       todos: state.todos.map((todo) {
         if (todo.id == id) {
-          return todo.copyWith(
-              id: id, title: todoDesc);
+          return todo.copyWith(id: id, title: todoDesc);
         }
         return todo;
       }).toList(),
@@ -58,28 +48,23 @@ class TodoListCubit extends Cubit<TodoListState> with HydratedMixin {
       todos: state.todos.map((todo) {
         if (todo.id == id) {
           return todo.copyWith(
-              id: id, title: todo.title, );
+            id: id,
+            title: todo.title,
+          );
         }
         return todo;
       }).toList(),
     ));
-    // log('TodoListState: toggled todo id $id to ' +
-    //     state.todos.firstWhere((todo) => todo.id == id).completed.toString());
+    
   }
 
-  void removeTodo(Todo todo) {
+  void removeTodo(NotesModel todo) {
     emit(state.copyWith(
       todos: state.todos.where((t) => t.id != todo.id).toList(),
     ));
     log('TodoListState: removed todo id ${todo.id}');
   }
 
-  // void removeCompletedTodos() {
-  //   emit(state.copyWith(
-  //     todos: state.todos.where((t) => !t.completed).toList(),
-  //   ));
-  //   log('TodoListState: todos left: ${state.todos.length}');
-  // }
 
   void removeAllTodos() {
     emit(state.copyWith(todos: []));

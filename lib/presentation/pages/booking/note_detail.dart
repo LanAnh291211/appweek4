@@ -69,7 +69,7 @@ class NoteDetail extends StatelessWidget {
       
       children: [
         Text(
-          info.title!,
+          info.title,
           style: CustomTextStyle.bold(
             fontSize: FontSize.veryBig,
           ),
@@ -77,12 +77,12 @@ class NoteDetail extends StatelessWidget {
         Padding(
           padding: CustomEdgeInsets.symmetric(vertical: Space.spacing40),
           child: Text(
-            haveTime ?  info.time!  : '',
+            haveTime ?  info.time  : '',
               style: CustomTextStyle.regular(fontSize: FontSize.veryLarge),
             ),
         ),
         Text(
-         info.subTitle! ,
+         info.subTitle ,
           style: CustomTextStyle.regular(fontSize: FontSize.veryLarge),
         ),
       ],

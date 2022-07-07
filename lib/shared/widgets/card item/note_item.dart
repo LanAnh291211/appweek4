@@ -36,7 +36,7 @@ class NoteItem extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            info.title!,
+            info.title,
             style: CustomTextStyle.bold(color: AppColors.black, fontSize: FontSize.veryLarge),
           ),
           Expanded(
@@ -47,7 +47,7 @@ class NoteItem extends StatelessWidget {
               ),
               height: 93,
               child: Text(
-                info.subTitle!,
+                info.subTitle,
                 style: CustomTextStyle.regular(color: AppColors.black, fontSize: FontSize.verySmall),
                 overflow: TextOverflow.ellipsis,
                 maxLines: 3,

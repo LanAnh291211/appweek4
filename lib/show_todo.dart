@@ -19,7 +19,8 @@ class _ShowTodoState extends State<ShowTodo> {
   Widget build(BuildContext context) {
     final todos = context.watch<FilteredTodoCubit>().state.filteredTodos;
 
-    return Scrollbar(// chờ e xíu ý. e test thử : 
+    return Scrollbar(
+      // chờ e xíu ý. e test thử :
       thickness: 5.0,
       child: ListView.builder(
           physics: const ScrollPhysics(parent: BouncingScrollPhysics()),
@@ -27,7 +28,6 @@ class _ShowTodoState extends State<ShowTodo> {
           itemBuilder: (BuildContext context, int index) {
             return Dismissible(
               key: ValueKey(todos[index].id),
-              
               child: TodoItem(
                 todo: todos[index],
               ),
@@ -47,12 +47,7 @@ class _ShowTodoState extends State<ShowTodo> {
                           TextButton(
                               onPressed: () {
                                 Navigator.of(context).pop(true);
-                                showTopSnackBar(
-                                    context,
-                                    CustomSnackBar.success(
-                                        message: 'Deleted successfully the ' +
-                                            todos[index].title+
-                                            '!'),
+                                showTopSnackBar(context, CustomSnackBar.success(message: 'Deleted successfully the ' + todos[index].title + '!'),
                                     displayDuration: const Duration(
                                       milliseconds: 1800,
                                     ));
@@ -93,7 +88,7 @@ class _ShowTodoState extends State<ShowTodo> {
 }
 
 class TodoItem extends StatefulWidget {
-  final Todo todo;
+  final NotesModel todo;
   const TodoItem({Key? key, required this.todo}) : super(key: key);
 
   @override
@@ -126,8 +121,7 @@ class _TodoItemState extends State<TodoItem> {
               bool _error = false;
               textController.text = widget.todo.title;
               String? errorMessage;
-              return StatefulBuilder(
-                  builder: (BuildContext context, StateSetter stateSetter) {
+              return StatefulBuilder(builder: (BuildContext context, StateSetter stateSetter) {
                 return AlertDialog(
                   title: const Text('Edit Todo'),
                   content: TextField(
@@ -146,13 +140,10 @@ class _TodoItemState extends State<TodoItem> {
                     ),
                     TextButton(
                       onPressed: () {
-                        if (textController.text.trim().isEmpty ||
-                            textController.text.trim() == widget.todo.title) {
+                        if (textController.text.trim().isEmpty || textController.text.trim() == widget.todo.title) {
                           stateSetter(() {
                             _error = true;
-                            errorMessage = textController.text.trim().isEmpty
-                                ? 'Please input the description.'
-                                : 'Same description is already exist.';
+                            errorMessage = textController.text.trim().isEmpty ? 'Please input the description.' : 'Same description is already exist.';
                           });
                         } else {
                           stateSetter(() {
@@ -160,15 +151,9 @@ class _TodoItemState extends State<TodoItem> {
                           });
                         }
                         if (!_error) {
-                          context
-                              .read<TodoListCubit>()
-                              .editTodo(widget.todo.id, textController.text);
+                          context.read<TodoListCubit>().editTodo(widget.todo.id, textController.text);
                           Navigator.of(context).pop();
-                          showTopSnackBar(
-                              context,
-                              CustomSnackBar.success(
-                                  message: 'Todo edited successfully to ' +
-                                      textController.text),
+                          showTopSnackBar(context, CustomSnackBar.success(message: 'Todo edited successfully to ' + textController.text),
                               displayDuration: const Duration(
                                 milliseconds: 1800,
                               ));

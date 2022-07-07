@@ -1,10 +1,8 @@
 // ignore_for_file: sort_child_properties_last
 
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:nsg_biolabs/presentation/pages/booking/note_detail.dart';
 import 'package:nsg_biolabs/presentation/pages/booking/note_page.dart';
-import 'package:nsg_biolabs/routes/app_routes.dart';
 import 'package:nsg_biolabs/shared/config/config.dart';
 import 'package:nsg_biolabs/shared/widgets/widges.dart';
 

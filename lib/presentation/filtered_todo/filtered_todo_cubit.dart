@@ -12,12 +12,12 @@ part 'filtered_todo_state.dart';
 
 class FilteredTodoCubit extends Cubit<FilteredTodoState> {
   late StreamSubscription todoFilterSubscription;
-  late StreamSubscription todoSearchSubscription;
+
   late StreamSubscription todoListSubscription;
 
   final TodoFilterOptionsCubit todoFilterCubit;
   final TodoListCubit todoListCubit;
-  final List<Todo> initialListTodo;
+  final List<NotesModel> initialListTodo;
   FilteredTodoCubit({
     required this.initialListTodo,
     required this.todoFilterCubit,
@@ -28,32 +28,22 @@ class FilteredTodoCubit extends Cubit<FilteredTodoState> {
     todoFilterSubscription = todoFilterCubit.stream.listen((TodoFilterOptionsState todoFilterState) {
       setFilterTodos();
     });
-   
+
     todoListSubscription = todoListCubit.stream.listen((TodoListState todoListState) {
       setFilterTodos();
     });
   }
 
   void setFilterTodos() {
-    List<Todo> _filteredTodos;
+    List<NotesModel> _filteredTodos;
 
     switch (todoFilterCubit.state.filter) {
-      // case Filter.active:
-      //   _filteredTodos = todoListCubit.state.todos.where((Todo todo) => !todo.completed).toList();
-
-      //   break;
-
-      // case Filter.completed:
-      //   _filteredTodos = todoListCubit.state.todos.where((Todo todo) => todo.completed).toList();
-      //   break;
-
       case Filter.all:
       default:
         _filteredTodos = todoListCubit.state.todos;
         break;
     }
 
-    
     emit(state.copyWith(filteredTodos: _filteredTodos));
     log('FilteredTodoState: Filtered Todos: $_filteredTodos');
   }
@@ -61,7 +51,6 @@ class FilteredTodoCubit extends Cubit<FilteredTodoState> {
   @override
   Future<void> close() {
     todoFilterSubscription.cancel();
-    todoSearchSubscription.cancel();
     todoListSubscription.cancel();
     return super.close();
   }

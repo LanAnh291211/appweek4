@@ -1,20 +1,19 @@
 part of 'filtered_todo_cubit.dart';
 
 class FilteredTodoState extends Equatable {
-  final List<Todo> filteredTodos;
+  final List<NotesModel> filteredTodos;
 
   const FilteredTodoState({
     required this.filteredTodos,
   });
 
-  factory FilteredTodoState.initial() =>
-      const FilteredTodoState(filteredTodos: []);
+  factory FilteredTodoState.initial() => const FilteredTodoState(filteredTodos: []);
 
   @override
   List<Object> get props => [filteredTodos];
 
   FilteredTodoState copyWith({
-    List<Todo>? filteredTodos,
+    List<NotesModel>? filteredTodos,
   }) {
     return FilteredTodoState(
       filteredTodos: filteredTodos ?? this.filteredTodos,
