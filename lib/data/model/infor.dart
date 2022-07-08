@@ -11,18 +11,16 @@ class NotesModel {
     required this.color,
     this.title = '',
     this.subTitle = '',
-    this.time='',
-
+    this.time = '',
   });
 }
 
-List<NotesModel> inforListDemo = [
+ List<NotesModel> list = [
   NotesModel(
     color: AppColors.burntSienna,
     time: '16/11/2021',
     title: 'Shopping List',
-    subTitle: 
-        'Neque egestas congue quisque egestas diam. Eu augue ut lectus arcu bibendum at varius vel pharetra. Aliquam faucibus purus in massa. Placerat duis ultricies lacus sed turpis tincidunt id. Adipiscing at in tellus integer feugiat. Pretium vulputate sapien nec sagittis. Integer enim neque volutpat ac tincidunt vitae. \n' +
+    subTitle: 'Neque egestas congue quisque egestas diam. Eu augue ut lectus arcu bibendum at varius vel pharetra. Aliquam faucibus purus in massa. Placerat duis ultricies lacus sed turpis tincidunt id. Adipiscing at in tellus integer feugiat. Pretium vulputate sapien nec sagittis. Integer enim neque volutpat ac tincidunt vitae. \n' +
         'Lectus quam id leo in vitae turpis massa sed. Amet justo donec enim diam vulputate ut pharetra sit. Aliquam ultrices sagittis orci a scelerisque purus semper eget duis. Id semper risus in hendrerit gravida. Lorem ipsum dolor sit amet consectetur. Turpis egestas maecenas pharetra convallis posuere morbi leo urna molestie. \n' +
         'Duis at consectetur lorem donec massa. Pellentesque habitant morbi tristique senectus et netus et malesuada. Odio pellentesque diam volutpat commodo sed egestas egestas fringilla.\n' +
         '',
@@ -36,8 +34,7 @@ List<NotesModel> inforListDemo = [
     color: AppColors.mediumOrchid,
     title: 'Shopping List ',
     time: '25/11/2021',
-    subTitle: 
-        'Neque egestas congue quisque egestas diam. Eu augue ut lectus arcu bibendum at varius vel pharetra. Aliquam faucibus purus in massa. Placerat duis ultricies lacus sed turpis tincidunt id. Adipiscing at in tellus integer feugiat. Pretium vulputate sapien nec sagittis. Integer enim neque volutpat ac tincidunt vitae. \n' +
+    subTitle: 'Neque egestas congue quisque egestas diam. Eu augue ut lectus arcu bibendum at varius vel pharetra. Aliquam faucibus purus in massa. Placerat duis ultricies lacus sed turpis tincidunt id. Adipiscing at in tellus integer feugiat. Pretium vulputate sapien nec sagittis. Integer enim neque volutpat ac tincidunt vitae. \n' +
         'Lectus quam id leo in vitae turpis massa sed. Amet justo donec enim diam vulputate ut pharetra sit. Aliquam ultrices sagittis orci a scelerisque purus semper eget duis. Id semper risus in hendrerit gravida. Lorem ipsum dolor sit amet consectetur. Turpis egestas maecenas pharetra convallis posuere morbi leo urna molestie. \n' +
         'Duis at consectetur lorem donec massa. Pellentesque habitant morbi tristique senectus et netus et malesuada. Odio pellentesque diam volutpat commodo sed egestas egestas fringilla.\n' +
         '',

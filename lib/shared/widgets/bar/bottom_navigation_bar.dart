@@ -12,8 +12,7 @@ class CustomBottomNavigationBar extends StatefulWidget {
 
 class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
   int _selectedIndex = 0;
-  late final IconData icon_left ;
-  late final IconData icon_right ;
+  
   
   
 
@@ -25,10 +24,9 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
       // unSelectedColor: Colors.black54,
       backgroundColor: Colors.white,
       currentIndex: _selectedIndex,
+      
       onTap: (index) {
-        setState(() {
-          _selectedIndex = index;
-        });
+        
       },
       enableLineIndicator: true,
       lineIndicatorWidth: 3,

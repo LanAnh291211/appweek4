@@ -1,37 +1,66 @@
 import 'package:flutter/material.dart';
+import 'package:nsg_biolabs/data/model/infor.dart';
 import 'package:nsg_biolabs/shared/config/config.dart';
 import 'package:nsg_biolabs/shared/values/strings.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../bloc/bloc_bloc.dart';
 import '../../../shared/widgets/widges.dart';
 
-class NotePage extends StatefulWidget {
+class NotePage extends StatelessWidget {
   const NotePage({Key? key}) : super(key: key);
 
-  @override
-  State<NotePage> createState() => _NotePageState();
-}
-
-class _NotePageState extends State<NotePage> {
-  @override
   Widget build(BuildContext context) {
-    return ScreenFrame(
-      appBar: CustomAppBar(),
-      children: [
-        CustomTextField(
-          hintText: AppString.enterTitle,
-          hintStyle: CustomTextStyle.bold(color: AppColors.nobel, fontSize: FontSize.veryBig),
-          haveOutlineBorder: false,
-          style: CustomTextStyle.bold(fontSize: FontSize.veryBig),
-        ),
-        CustomTextField(
-          hintText: AppString.enterContent,
-          haveOutlineBorder: false,
-          maxLine: null,
-          style: CustomTextStyle.regular(),
-        ),
-      ],
-      bottomNavigationBar: CustomBottomNavigationBar(),
+    TextEditingController controllerTitle = TextEditingController();
+    TextEditingController controllerSubTitle = TextEditingController();
+    return BlocProvider(
+      create: (context) => ToDoListBloc(),
+      child: BlocConsumer<ToDoListBloc, ToDoListState>(
+        listener: (context, state) {
+          // TODO: implement listener
+        },
+        builder: (context, state) {
+          return Scaffold(
+            appBar: CustomAppBar(),
+            body: Column(
+              children: [
+                CustomTextField(
+                  controller: controllerTitle,
+                  hintText: AppString.enterTitle,
+                  hintStyle: CustomTextStyle.bold(color: AppColors.nobel, fontSize: FontSize.veryBig),
+                  haveOutlineBorder: false,
+                  style: CustomTextStyle.bold(fontSize: FontSize.veryBig),
+                ),
+                CustomTextField(
+                  controller: controllerSubTitle,
+                  hintText: AppString.enterContent,
+                  haveOutlineBorder: false,
+                  maxLine: null,
+                  style: CustomTextStyle.regular(),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    var todo = NotesModel(
+                      color: Colors.blue,
+                      title: controllerTitle.value.text,
+                      subTitle: controllerSubTitle.value.text,
+                    );
+                    context.read<ToDoListBloc>().add(Add(todo));
+                    Navigator.pop(context);
+                  },
+                  style: ElevatedButton.styleFrom(
+                    primary: Theme.of(context).primaryColor,
+                  ),
+                  child: const Text('Add ToDo'),
+                ),
+              ],
+            ),
+          );
+        },
+      ),
     );
+
+    // bottomNavigationBar: CustomBottomNavigationBar(),
   }
 
 //   Align _retote(double offsetx, double offsety, double rt, Color backgroundColor, double height, double width) {
