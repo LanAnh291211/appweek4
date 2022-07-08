@@ -2,7 +2,7 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:uuid/uuid.dart';
 
-enum Filter { all, active, completed }
+enum Filter { all }
 
 Uuid uuid = const Uuid();
 
@@ -10,7 +10,7 @@ class Todo extends Equatable {
   final String id;
   final String title;
   final Color color;
-  final String time;
+  final String time;//dạ anh :v để giờ e ns luôn 
   final String subTitle;
   Todo(  {
     String? id,

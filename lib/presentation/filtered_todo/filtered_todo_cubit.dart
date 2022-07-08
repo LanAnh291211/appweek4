@@ -47,7 +47,7 @@ class FilteredTodoCubit extends Cubit<FilteredTodoState> {
       //   _filteredTodos = todoListCubit.state.todos.where((Todo todo) => todo.completed).toList();
       //   break;
 
-      case Filter.all:
+      // case Filter.all:
       default:
         _filteredTodos = todoListCubit.state.todos;
         break;
@@ -61,7 +61,6 @@ class FilteredTodoCubit extends Cubit<FilteredTodoState> {
   @override
   Future<void> close() {
     todoFilterSubscription.cancel();
-    todoSearchSubscription.cancel();
     todoListSubscription.cancel();
     return super.close();
   }
