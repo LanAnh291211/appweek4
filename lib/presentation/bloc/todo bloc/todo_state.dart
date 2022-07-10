@@ -10,10 +10,10 @@ abstract class TodoState extends Equatable {
 class TodoLoadingState extends TodoState {}
 
 class TodoLoadedState extends TodoState {
-  final List<TodoModel> todos;
+  final List<TodoModel> todoList;
 
-  TodoLoadedState({this.todos = const <TodoModel>[]});
+  TodoLoadedState({this.todoList = const <TodoModel>[]});
 
   @override
-  List<Object> get props => [todos];
+  List<Object> get props => [todoList];
 }

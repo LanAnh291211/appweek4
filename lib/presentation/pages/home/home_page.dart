@@ -29,7 +29,7 @@ class HomePage extends StatelessWidget {
       ],
       floatingActionButton: CustomFloatingActionButton(
         onPressed: () => Navigator.of(context).push(
-          MaterialPageRoute(builder: (context) =>  AddNotePage()),
+          MaterialPageRoute(builder: (context) => AddNotePage()),
         ),
       ),
       bottomNavigationBar: Padding(
@@ -40,7 +40,7 @@ class HomePage extends StatelessWidget {
             BlocBuilder<TodosBloc, TodoState>(
               builder: (context, state) {
                 if (state is TodoLoadedState) {
-                  return Text('${state.todos.length} ${AppString.notes}');
+                  return Text('${state.todoList.length} ${AppString.notes}');
                 }
                 return const Text(AppString.loading);
               },
@@ -62,8 +62,8 @@ class HomePage extends StatelessWidget {
               child: ListView.builder(
             // separatorBuilder: ( context,  index) => CustomSizedBox(height: 10,),
             shrinkWrap: true,
-            itemCount: state.todos.length,
-            itemBuilder: (BuildContext context, int index) => NoteItem(info: state.todos[index]),
+            itemCount: state.todoList.length,
+            itemBuilder: (BuildContext context, int index) => NoteItem(info: state.todoList[index]),
           ));
         }
         return const Text(AppString.error);

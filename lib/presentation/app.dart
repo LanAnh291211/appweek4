@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nsg_biolabs/data/model/todo_model.dart';
 import 'package:nsg_biolabs/shared/config/config.dart';
 import 'package:nsg_biolabs/shared/service/navigation_service.dart';
+
 import 'bloc/edit bloc/edit_bloc.dart';
 import 'bloc/todo bloc/todo_bloc.dart';
 import 'pages/home/home_page.dart';
@@ -11,6 +12,7 @@ class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
   // This widget is the root of your application.
+  
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -18,26 +20,22 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => TodosBloc()
             ..add(
-              LoadTodosEvent(todos: todoListDemo),
+              LoadTodosEvent(todoList: todoListDemo),
             ),
         ),
-        BlocProvider<EditBloc>(
-          create: (context) => EditBloc()
-           
-        ),
-        
+        BlocProvider<EditBloc>(create: (context) => EditBloc()),
       ],
       child: MaterialApp(
-            title: 'NSG BIOLABS',
-             navigatorKey: NavigationService.navigatorKey,
-            debugShowCheckedModeBanner: false,
-            locale: const Locale("en"),
-            theme: ThemeData(
-              textTheme: CustomTextStyle.textFontApp,
-            ),
-            home: HomePage(),
-            // translationsKeys: AppTranslation.translations,
-          ),
+        title: 'To do List',
+        navigatorKey: NavigationService.navigatorKey,
+        debugShowCheckedModeBanner: false,
+        locale: const Locale("en"),
+        theme: ThemeData(
+          textTheme: CustomTextStyle.textFontApp,
+        ),
+        home: HomePage(),
+        // translationsKeys: AppTranslation.translations,
+      ),
     );
   }
 }

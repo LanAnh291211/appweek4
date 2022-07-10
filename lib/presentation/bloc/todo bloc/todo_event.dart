@@ -2,19 +2,17 @@ part of 'todo_bloc.dart';
 
 @immutable
 abstract class TodosEvent extends Equatable {
-
   @override
   List<Object> get props => [];
 }
 
-
 class LoadTodosEvent extends TodosEvent {
-  final List<TodoModel> todos;
+  final List<TodoModel> todoList;
 
-  LoadTodosEvent({this.todos = const <TodoModel>[]});
+  LoadTodosEvent({this.todoList = const <TodoModel>[]});
 
   @override
-  List<Object> get props => [todos];
+  List<Object> get props => [todoList];
 }
 
 class AddTodoEvent extends TodosEvent {
