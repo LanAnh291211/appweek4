@@ -46,7 +46,8 @@ class AddNotePage extends StatelessWidget {
               var todo = TodoModel(
                 title: _titleController.text,
                 content: _contentController.text,
-                color: Colors.primaries[Random().nextInt(Colors.primaries.length)], id: Uuid().v4(),
+                color: Colors.primaries[Random().nextInt(Colors.primaries.length)],
+                id: Uuid().v4(),
               );
               context.read<TodosBloc>().add(
                     AddTodoEvent(todo: todo),
