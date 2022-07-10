@@ -46,21 +46,33 @@ class _HomePageState extends State<HomePage> {
               CustomSizedBox(
                 height: Space.spacing15,
               ),
-              
-                
-                  _listviewItem(state),
-                
-
+              _listviewItem(state),
               // ConstrainedBox(
               //   constraints: BoxConstraints(),
               //   child: SingleChildScrollView(
               //     scrollDirection: Axis.vertical,
-
-              //     child: Column(
-              //       children: List.generate(inforListDemo.length, (index) => _item(inforListDemo[index])),
+              //     child: Expanded(
+              //       child: Column(
+              //         children: List.generate(list.length, (index) => NoteItem(info: list[index])),
+              //       ),
               //     ),
               //   ),
               // ),
+        //       Expanded(
+        //     child: ListView.builder(
+        //   // separatorBuilder: ( context,  index) => CustomSizedBox(height: 10,),
+        //   shrinkWrap: true,
+        //   itemCount: list.length,
+        //   itemBuilder: (BuildContext context, int index) => GestureDetector(
+        //     child: NoteItem(info:list[index]),
+        //     onTap: () => Navigator.of(context).push(
+        //       MaterialPageRoute(
+        //           builder: (context) => NoteDetail(
+        //                 info: list[index],
+        //               )),
+        //     ),
+        //   ),
+        // ))
             ],
             floatingActionButton: CustomFloatingActionButton(
               onPressed: () => Navigator.of(context).push(
@@ -83,31 +95,24 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _listviewItem(ToDoListState state) {
-     switch (state.type) {
-      case ToDoStateType.initial:
-        return Container(
-          color: Colors.red,
-        );
-
-      case ToDoStateType.loaded:
-    return Expanded(
-        child: ListView.builder(
-      // separatorBuilder: ( context,  index) => CustomSizedBox(height: 10,),
-      shrinkWrap: true,
-      itemCount: state.list.length,
-      itemBuilder: (BuildContext context, int index) => GestureDetector(
-        child: NoteItem(info: list[index]),
-        onTap: () => Navigator.of(context).push(
-          MaterialPageRoute(
-              builder: (context) => NoteDetail(
-                    info: state.list[index],
-                  )),
-        ),
-      ),
-    )); default:
-        return Container(
-          color: Colors.green,
-        );
-    }
+   
+      
+        return Expanded(
+            child: ListView.builder(
+          // separatorBuilder: ( context,  index) => CustomSizedBox(height: 10,),
+          shrinkWrap: true,
+          itemCount: state.list.length,
+          itemBuilder: (BuildContext context, int index) => GestureDetector(
+            child: NoteItem(info: state.list[index]),
+            onTap: () => Navigator.of(context).push(
+              MaterialPageRoute(
+                  builder: (context) => NoteDetail(
+                        info: state.list[index],
+                      )),
+            ),
+          ),
+        ));
+      
+    
   }
 }
