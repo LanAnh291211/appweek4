@@ -26,12 +26,12 @@ class CustomIcon extends StatelessWidget {
       replacement: Icon(
         icon,
         color: color,
-        size: size.h,
+        size: size,
       ),
       child: SvgPicture.asset(
         "$svgIcon".getSVGImageAssets,
-        height: size.h,
-        width: width != null ? width!.w : null,
+        height: size,
+        width: width != null ? width! : null,
         color: color,
       ),
     );

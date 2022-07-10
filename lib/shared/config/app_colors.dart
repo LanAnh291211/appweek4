@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
-  static const nobel = Color.fromRGBO(153, 153, 153, 1);
-  static const burntSienna= Color(0xFFEB5757);
-  static const portica= Color(0xFFF2C94C);
-  static const nightRider= Color(0xFF333333);
-  static const mediumOrchid= Color(0xFFBB6BD9);
-  static const seaBuckthorn= Color(0xFFF2994A);
-  static const mediumAquamarine= Color(0xFF6FCF97);
+  static const nobel = Color.fromARGB(255, 153, 153, 153);
+  static const burntSienna= Color.fromRGBO(235, 87, 87, 1);
+  static const portica= Color.fromRGBO(242, 201, 76, 1);
+  static const nightRider= Color.fromRGBO(51, 51, 51, 1);
+  static const mediumOrchid= Color.fromRGBO(187, 107, 217, 1);
+  static const seaBuckthorn= Color.fromRGBO(242, 153, 74, 1);
+  static const mediumAquamarine= Color.fromRGBO(111, 207, 151, 1);
   static const gainsboro = Color.fromRGBO(217, 217, 217, 1);
   static const hippieBlue = Color.fromRGBO(78, 134, 148, 1);
   static const black = Color.fromRGBO(0, 0, 0, 1);

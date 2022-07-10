@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:nsg_biolabs/shared/config/config.dart';
+import 'package:nsg_biolabs/shared/service/navigation_service.dart';
 import 'package:nsg_biolabs/shared/widgets/icons/custom_icon.dart';
 
 class CustomAppBar extends AppBar {
@@ -23,7 +23,7 @@ class CustomAppBar extends AppBar {
                     svgIcon: AppImages.icBack,
                     size: IconSize.small,
                   ),
-                  onPressed: () => Get.back(),
+                  onPressed: () => Navigator.pop(NavigationService.navigatorKey.currentContext!),
                 )
               : null,
           actions: actionIcon != null

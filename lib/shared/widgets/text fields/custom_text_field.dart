@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:get/get.dart';
 import 'package:nsg_biolabs/shared/config/config.dart';
 import 'package:nsg_biolabs/shared/extensions/image_assets_path_extension.dart';
-import 'package:nsg_biolabs/shared/widgets/widges.dart';
 
 class CustomTextField extends StatelessWidget {
   final String label;
@@ -55,25 +53,26 @@ class CustomTextField extends StatelessWidget {
         Visibility(
           visible: label.isEmpty ? false : true,
           child: Container(
-              margin: CustomEdgeInsets.only(bottom: Space.spacing7),
+              margin: const EdgeInsets.only(bottom: Space.spacing7),
               child: Text(
-                label.tr,
+                label,
               )),
         ),
         TextFormField(
           validator: validator,
           keyboardType: keyboardType,
+          controller: controller,
           obscureText: obscureText,
           maxLines: maxLine,
           minLines: minLine,
           style: style,
           decoration: InputDecoration(
-              hintText: hintText.tr,
+              hintText: hintText,
               hintStyle: hintStyle,
               prefixIcon: prefixIcon == null
                   ? null
                   : Container(
-                      margin: CustomEdgeInsets.symmetric(
+                      margin: const EdgeInsets.symmetric(
                         horizontal: Space.spacing14,
                       ),
                       child: GestureDetector(
@@ -86,7 +85,7 @@ class CustomTextField extends StatelessWidget {
               suffixIcon: suffixIcon == null
                   ? null
                   : Container(
-                      margin: CustomEdgeInsets.only(right: Space.spacing21),
+                      margin: const EdgeInsets.only(right: Space.spacing21),
                       child: GestureDetector(
                         onTap: suffixIconOnTap,
                         child: SvgPicture.asset(
@@ -94,13 +93,13 @@ class CustomTextField extends StatelessWidget {
                         ),
                       ),
                     ),
-              suffixIconConstraints: BoxConstraints(maxHeight: suffixIconSize.h),
-              prefixIconConstraints: BoxConstraints(maxHeight: prefixIconSize.h),
+              suffixIconConstraints: BoxConstraints(maxHeight: suffixIconSize),
+              prefixIconConstraints: BoxConstraints(maxHeight: prefixIconSize),
               isDense: true,
-              contentPadding: CustomEdgeInsets.symmetric(horizontal: Space.spacing14, vertical: Space.spacing16),
+              contentPadding: const EdgeInsets.symmetric(horizontal: Space.spacing14, vertical: Space.spacing16),
               border: haveOutlineBorder
                   ? OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(borderRadius.r),
+                      borderRadius: BorderRadius.circular(borderRadius),
                       borderSide: const BorderSide(color: AppColors.gainsboro),
                     )
                   : InputBorder.none),

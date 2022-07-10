@@ -4,14 +4,8 @@ import 'package:nsg_biolabs/shared/values/strings.dart';
 
 import '../../../shared/widgets/widges.dart';
 
-class NotePage extends StatefulWidget {
-  const NotePage({Key? key}) : super(key: key);
 
-  @override
-  State<NotePage> createState() => _NotePageState();
-}
-
-class _NotePageState extends State<NotePage> {
+class EditNotePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenFrame(
@@ -30,21 +24,6 @@ class _NotePageState extends State<NotePage> {
           style: CustomTextStyle.regular(),
         ),
       ],
-      bottomNavigationBar: CustomBottomNavigationBar(),
     );
   }
-
-//   Align _retote(double offsetx, double offsety, double rt, Color backgroundColor, double height, double width) {
-//     return Align(
-//       alignment: Alignment(offsetx, offsety),
-//       child: RotationTransition(
-//         turns: AlwaysStoppedAnimation(rt / 360),
-//         child: Container(
-//           height: height,
-//           width: width,
-//           decoration: BoxDecoration(color: backgroundColor),
-//         ),
-//       ),
-//     );
-//   }
 }

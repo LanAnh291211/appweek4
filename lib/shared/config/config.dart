@@ -6,4 +6,3 @@ export 'space.dart';
 export 'text_style.dart';
 export 'border_radius.dart';
 export 'shape_size.dart';
-export 'package:flutter_screenutil/flutter_screenutil.dart';

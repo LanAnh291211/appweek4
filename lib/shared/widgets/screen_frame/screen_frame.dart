@@ -32,7 +32,7 @@ class ScreenFrame extends StatelessWidget {
         appBar: appBar,
         body: children.isNotEmpty
             ? Padding(
-                padding: CustomEdgeInsets.symmetric(
+                padding: EdgeInsets.symmetric(
                   horizontal: horizontalPadding,
                   vertical: verticalPadding,
                 ),

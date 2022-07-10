@@ -7,16 +7,16 @@ class CustomTextStyle {
 
   static TextStyle regular({Color? color, double fontSize = FontSize.medium}) => TextStyle(
         color: color,
-        fontSize: fontSize.sp,
+        fontSize: fontSize,
       );
   static TextStyle medium({Color? color, double fontSize = FontSize.medium}) => TextStyle(
         color: color,
-        fontSize: fontSize.sp,
+        fontSize: fontSize,
         fontWeight: FontWeight.w500,
       );
   static TextStyle bold({Color? color, double fontSize = FontSize.medium}) => TextStyle(
         color: color,
-        fontSize: fontSize.sp,
+        fontSize: fontSize,
         fontWeight: FontWeight.bold,
       );
 }
