@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nsg_biolabs/data/model/todo_model.dart';
 import 'package:nsg_biolabs/shared/config/config.dart';
 import 'package:nsg_biolabs/shared/service/navigation_service.dart';
-
-import 'bloc/todo_bloc.dart';
+import 'bloc/edit bloc/edit_bloc.dart';
+import 'bloc/todo bloc/todo_bloc.dart';
 import 'pages/home/home_page.dart';
 
 class MyApp extends StatelessWidget {
@@ -20,6 +20,10 @@ class MyApp extends StatelessWidget {
             ..add(
               LoadTodosEvent(todos: todoListDemo),
             ),
+        ),
+        BlocProvider<EditBloc>(
+          create: (context) => EditBloc()
+           
         ),
         
       ],

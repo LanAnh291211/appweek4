@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:nsg_biolabs/presentation/bloc/todo_bloc.dart';
+import 'package:nsg_biolabs/presentation/bloc/todo%20bloc/todo_bloc.dart';
 import 'package:nsg_biolabs/presentation/pages/note/add_note_page.dart';
 import 'package:nsg_biolabs/shared/config/config.dart';
 import 'package:nsg_biolabs/shared/widgets/widges.dart';
@@ -63,15 +63,7 @@ class HomePage extends StatelessWidget {
             // separatorBuilder: ( context,  index) => CustomSizedBox(height: 10,),
             shrinkWrap: true,
             itemCount: state.todos.length,
-            itemBuilder: (BuildContext context, int index) => GestureDetector(
-              child: NoteItem(info: state.todos[index]),
-              // onTap: () => Navigator.of(context).push(
-              //   MaterialPageRoute(
-              //       builder: (context) => NoteDetail(
-              //             info: state[index],
-              //           )),
-              // ),
-            ),
+            itemBuilder: (BuildContext context, int index) => NoteItem(info: state.todos[index]),
           ));
         }
         return const Text(AppString.error);

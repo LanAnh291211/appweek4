@@ -3,9 +3,10 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nsg_biolabs/data/model/todo_model.dart';
-import 'package:nsg_biolabs/presentation/bloc/todo_bloc.dart';
+import 'package:nsg_biolabs/presentation/bloc/todo%20bloc/todo_bloc.dart';
 import 'package:nsg_biolabs/shared/config/config.dart';
 import 'package:nsg_biolabs/shared/values/strings.dart';
+import 'package:uuid/uuid.dart';
 
 import '../../../shared/widgets/widges.dart';
 
@@ -45,7 +46,7 @@ class AddNotePage extends StatelessWidget {
               var todo = TodoModel(
                 title: _titleController.text,
                 content: _contentController.text,
-                color: Colors.primaries[Random().nextInt(Colors.primaries.length)],
+                color: Colors.primaries[Random().nextInt(Colors.primaries.length)], id: Uuid().v4(),
               );
               context.read<TodosBloc>().add(
                     AddTodoEvent(todo: todo),
